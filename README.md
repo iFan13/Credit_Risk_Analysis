@@ -13,7 +13,7 @@ The following analysis examines six different machine learning algorithms to com
 
 ## Resources
 
-Language & libraries used in this analysis are: 
+Language & libraries used in this analysis are:
 
 * Python
   * [scikit-learn library](https://scikit-learn.org/stable/index.html)
@@ -56,17 +56,16 @@ Then each individual algorithm's classification report is shown in the following
 
 ## Summary
 
-In context of the classification report, category 0 represents a loan status of being high risk while a category 1 represents low risk. Credit card companies will want to identify high risk rather than low risk and so the report lines regarding category 0 are to be used. Analogously, if the statement "the world is flat" is compared to "the world is round", the proof to dispute is more relevant to determine whether the "world is not flat" by comparison because the "world is round" is not a guaranteed truth; the world could be ovular.
+In context of the classification report, category 0 represents a sample of loan statuses of being 'high risk' while a category 1 represents a sample of loan statuses being 'low risk'. Credit card companies will want to identify high risk rather than low risk and so the report lines regarding category 0 are to be used. Analogously, if the statement "the world is flat" is compared to "the world is round", the proof to dispute is more relevant to determine whether the "world is not flat" by comparison because the "world is round" is not a guaranteed truth; the world could be ovular.
 
-It is necessary to use prediction using category 0's statistics since the true comparative statement is not "'the likelihood of a high risk prediction is actuallyy high' versus 'the likelihood of a low risk prediction is  actually high'". Instead it is actually "'the likelihood of a high-risk prediction is actually high' versus 'the likelihood of a not-high-risk prediction is actually high'". That is to say, it is more important to determine what is truly high risk rather than anything that is not-high-risk since not-high-risk does not explicitly mean low risk.
+It is necessary to use prediction using category 0's statistics since the true comparative statement is not "'the likelihood of a high risk prediction is actually high risk' versus 'the likelihood of a low risk prediction is  actually high risk'". Instead it is actually "'the likelihood of a high-risk prediction is actually high' versus 'the likelihood of a not-high-risk prediction is actually high'". That is to say, it is more important to determine what is truly high risk rather than anything that is not-high-risk since not-high-risk does not explicitly mean low risk.
 
 A credit card company will want a high precision identifying high risk *and* be accurate. Below is a summarized table of the relevant statistics of precision, recall/sensitivity and the F1 score for the category 0 (high risk) categorization.
 
 ![ReportsSummarized](/Resources/ReportsSummarized.png)
 
-Given what was previously stated, it is desireable for a high precision number or, in otherwords, "the likelihood of a high risk being predicted is actually high". Per the summary and individual reports, none of the models have a high precision (the highest being the EasyEnsembleClassifier at 9%, which is otherwise analgous to: out of 100 applicants flagged as high risk, only 9 were actually high risk). The sensitivity suggests how many of the bad loan applications were detected at all. In the case of the best precision, the EasyEnsembleClassifier has captured 92% of the bad applications. Not terrible but not ideal considering the precision needed 91 errors (100 flagged - 9 actual) to attempt to capture 92% of the bad applications.
+Given what was previously stated, it is desireable for a high precision number or, in otherwords, "the likelihood of a high risk being predicted is actually high risk" and a high balanced accuracy score, or in otherwords "the likelyhood that the statement that an applicant is high risk is actually true". Per the summary and individual reports, none of the models have a high precision (the highest being the EasyEnsembleClassifier at 9%, which is otherwise analgous to: out of 100 applicants flagged as high risk, only 9 were actually high risk). The sensitivity suggests how many of the bad loan applications were detected at all. In the case of the best precision, the EasyEnsembleClassifier has captured 92% of the bad applications. Not terrible but not ideal considering the precision needed 91 errors (100 flagged - 9 actual) to attempt to capture 92% of the bad applications.
 
-Following up the F1 score, for the best precision model (EasyEnsembleClassifier) is a mere 0.16. An F1 score that approaches 1 implies a balance between sensitivity and precision so therefore a low F1 score such as 0.16 would imply an imbalance. 
+Following up the F1 score, for the best precision model (EasyEnsembleClassifier) is a mere 0.16. An F1 score that approaches 1 implies a balance between sensitivity and precision so therefore a low F1 score such as 0.16 would imply an imbalance.
 
 As a result of the low precision, high imbalance, even though the sensitivity could be considered high, none of the algorithms are reasonable for use.
-
